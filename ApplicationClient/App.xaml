@@ -1,0 +1,13 @@
+﻿<Application x:Class="ApplicationClient.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:v="clr-namespace:ApplicationClient.Views"
+             xmlns:vm="clr-namespace:ApplicationClient.ViewModels"
+             xmlns:local="clr-namespace:ApplicationClient"
+             StartupUri="Views/MainWindow.xaml">
+    <Application.Resources>
+        <DataTemplate DataType="{x:Type vm:MainViewModel}">
+            <v:MainWindow />
+        </DataTemplate>
+    </Application.Resources>
+</Application>
