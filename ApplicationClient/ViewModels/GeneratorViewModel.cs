@@ -2,7 +2,10 @@
 
 
 namespace ApplicationClient.ViewModels;
-public class MainViewModel : ViewModelBase 
+public class GeneratorViewModel : ViewModel
 {
-	
+	public GeneratorViewModel()
+	{
+
+	}
 }
