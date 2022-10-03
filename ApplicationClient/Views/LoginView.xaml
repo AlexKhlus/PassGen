@@ -1,0 +1,93 @@
+﻿<UserControl
+	x:Class="ApplicationClient.Views.LoginView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:xamlControls="clr-namespace:ApplicationClient.XamlControls"
+	xmlns:resx="clr-namespace:ApplicationClient.Utils.Resources"
+	xmlns:viewModels="clr-namespace:ApplicationClient.ViewModels"
+	xmlns:converters="clr-namespace:ApplicationClient.Utils.Converters"
+
+	mc:Ignorable="d"
+	d:DesignHeight="800" d:DesignWidth="1100"
+	d:DataContext="{d:DesignInstance viewModels:LoginViewModel}">
+
+	<UserControl.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="../Utils/Resources/Icons.xaml" />
+				<ResourceDictionary Source="../Utils/Resources/Styles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+
+			<converters:InverseBooleanConverter x:Key="InverseBooleanConverter" />
+			<converters:MultipleToSingleParameterConverter x:Key="MultipleToSingleParameterConverter" />
+		</ResourceDictionary>
+	</UserControl.Resources>
+	<Grid>
+		<StackPanel
+			Orientation="Vertical"
+			HorizontalAlignment="Stretch"
+			VerticalAlignment="Center"
+			Margin="0 -120 0 0"
+			IsEnabled="{Binding IsLoggingInInProgress, Converter={StaticResource InverseBooleanConverter}}">
+			<xamlControls:CustomizableField
+				Style="{StaticResource CustomizeFieldStyle}"
+				Text="{Binding Username,
+			    	Mode=TwoWay,
+			    	UpdateSourceTrigger=PropertyChanged}"
+				Placeholder="{x:Static resx:Strings.LoginPlaceholder}"
+				HasClearButton="True"
+				HasLeadingIcon="True"
+				LeadingIcon="{StaticResource UserIcon}" />
+			<xamlControls:BindablePasswordBox
+				Style="{StaticResource BindablePasswordStyle}"
+				Password="{Binding Password,
+					Mode=TwoWay,
+					UpdateSourceTrigger=PropertyChanged}"
+				Placeholder="{x:Static resx:Strings.PasswordPlaceholder}"
+				HasLeadingIcon="True"
+				LeadingIcon="{StaticResource KeyIcon}" />
+			<StackPanel
+				Orientation="Vertical"
+				HorizontalAlignment="Center" VerticalAlignment="Center"
+				Margin="0 10">
+				<!--<Button
+					Height="{Binding ActualHeight, ElementName=AuthTroublesText}"
+					Width="{Binding ActualWidth, ElementName=AuthTroublesText}"
+					Style="{StaticResource PseudoLinkButtonStyle}"
+					Command="{Binding NavigateResetCommand}">
+					<Button.Content>
+						<TextBlock
+							x:Name="AuthTroublesText"
+							Text="{x:Static resx:Strings.ResetAccountText}"
+							Style="{StaticResource PseudoLinkTextBlockStyle}" />
+					</Button.Content>
+				</Button>-->
+
+				<Button
+					Height="{Binding ActualHeight, ElementName=CreateAccountText}"
+					Width="{Binding ActualWidth, ElementName=CreateAccountText}"
+					Style="{StaticResource PseudoLinkButtonStyle}"
+					Command="{Binding NavigateToRegistrationViewModelCommand}">
+					<Button.Content>
+						<TextBlock
+							x:Name="CreateAccountText"
+							Text="{x:Static resx:Strings.CreateAccountText}"
+							Style="{StaticResource PseudoLinkTextBlockStyle}" />
+					</Button.Content>
+				</Button>
+			</StackPanel>
+			<Button
+				Style="{StaticResource SigninButtonStyle}"
+				Command="{Binding LoginCommand}">
+				<Button.CommandParameter>
+					<MultiBinding Converter="{StaticResource MultipleToSingleParameterConverter}">
+						<Binding Path="Username" />
+						<Binding Path="Password" />
+					</MultiBinding>
+				</Button.CommandParameter>
+			</Button>
+		</StackPanel>
+	</Grid>
+</UserControl>

@@ -1,0 +1,83 @@
+﻿<UserControl
+	x:Class="ApplicationClient.Views.NavigationSideBarView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:xamlControls="clr-namespace:ApplicationClient.XamlControls"
+	xmlns:viewModels="clr-namespace:ApplicationClient.ViewModels"
+
+	mc:Ignorable="d"
+	d:DesignHeight="800" d:DesignWidth="200"
+	d:DataContext="{d:DesignInstance viewModels:NavigationSideBarViewModel}"
+
+	IsVisibleChanged="OnVisibleChanged">
+
+	<UserControl.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="../Utils/Resources/Icons.xaml" />
+				<ResourceDictionary Source="../Utils/Resources/Colors.xaml" />
+				<ResourceDictionary Source="../Utils/Resources/Styles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</UserControl.Resources>
+	<Grid
+		Background="{StaticResource SecondaryBackgroundColor}">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="70" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+
+		<xamlControls:TabButton
+			Grid.Row="0"
+			Command="{Binding ExtendBarCommand}"
+			CommandParameter="{Binding IsExtended}"
+			Icon="{StaticResource BurgerMenu}"
+			HorizontalContentAlignment="Left" />
+
+		<ListView 
+			Grid.Row="1"
+			Style="{StaticResource ListViewStyle}"
+			x:Name="ListView">
+			<ListViewItem
+				Style="{StaticResource ListViewItemStyle}"
+				IsSelected="True">
+				<ListViewItem.Content>
+					<xamlControls:TabButton
+							x:Name="Generator"
+							Command="{Binding NavigateToGeneratorViewModelCommand}"
+							Icon="{StaticResource KeyIcon}" 
+							HasLabel="{Binding IsExtended}"
+							Label="Generator"
+							PreviewMouseUp="OnMouseUp"/>
+				</ListViewItem.Content>
+			</ListViewItem>
+			<ListViewItem
+				Style="{StaticResource ListViewItemStyle}">
+				<ListViewItem.Content>
+					<xamlControls:TabButton
+							x:Name="Storage"
+							Command="{Binding NavigateToStorageViewModelCommand}"
+							Icon="{StaticResource KeyIcon}" 
+							HasLabel="{Binding IsExtended}"
+							Label="Storage"
+							PreviewMouseUp="OnMouseUp" />
+				</ListViewItem.Content>
+			</ListViewItem>
+		</ListView>
+
+		<StackPanel
+			Grid.Row="2"
+			Orientation="Horizontal">
+			<xamlControls:TabButton
+				x:Name="Logout"
+				Command="{Binding LogoutCommand}"
+				Icon="{StaticResource LogoutIcon}"
+				HasLabel="{Binding IsExtended}"
+				Label="Logout"
+				HorizontalContentAlignment="Left" />
+		</StackPanel>
+	</Grid>
+</UserControl>
