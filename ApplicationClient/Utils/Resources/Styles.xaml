@@ -1,0 +1,201 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:cc="clr-namespace:ApplicationClient.XamlControls"
+                    xmlns:resx="clr-namespace:ApplicationClient.Utils.Resources">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="Colors.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+
+	<Style x:Key="MainWindowStyle">
+		<Setter Property="Window.Title" Value="{x:Static resx:Strings.AppTitle}" />
+		<Setter Property="Window.ResizeMode" Value="CanMinimize" />
+		<Setter Property="Window.Height" Value="800" />
+		<Setter Property="Window.Width" Value="1100" />
+		<Setter Property="Window.Background" Value="{StaticResource PrimaryBackgroundColor}" />
+	</Style>
+
+	<Style x:Key="CustomizeFieldStyle" TargetType="{x:Type cc:CustomizableField}">
+		<Setter Property="Width" Value="300" />
+		<Setter Property="Margin" Value="0 10" />
+	</Style>
+
+	<Style x:Key="BindablePasswordStyle" TargetType="{x:Type cc:BindablePasswordBox}">
+		<Setter Property="Width" Value="300" />
+		<Setter Property="Margin" Value="0 10" />
+	</Style>
+
+	<Style x:Key="PseudoLinkButtonStyle" TargetType="{x:Type Button}">
+		<Setter Property="HorizontalContentAlignment" Value="Center" />
+		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="Background" Value="Transparent" />
+		<Setter Property="BorderBrush" Value="Transparent" />
+		<Setter Property="FocusVisualStyle" Value="{x:Null}" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Border
+						Background="{TemplateBinding Background}"
+						BorderBrush="{TemplateBinding BorderBrush}">
+						<ContentPresenter
+							HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+							VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter Property="Background" Value="Transparent" />
+							<Setter Property="BorderBrush" Value="Transparent" />
+						</Trigger>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter Property="Cursor" Value="Hand" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="PseudoLinkTextBlockStyle" TargetType="{x:Type TextBlock}">
+		<Setter Property="Padding" Value="12 3" />
+		<Setter Property="TextDecorations" Value="Underline" />
+		<Setter Property="FontSize" Value="16" />
+		<Setter Property="Foreground" Value="{StaticResource LinkColor}" />
+		<Setter Property="HorizontalAlignment" Value="Center" />
+		<Setter Property="VerticalAlignment" Value="Center" />
+	</Style>
+
+	<Style x:Key="ButtonStyleBase" TargetType="{x:Type Button}">
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="HorizontalContentAlignment" Value="Center" />
+		<Setter Property="FontWeight" Value="Medium" />
+		<Setter Property="Background" Value="{StaticResource PrimaryButtonColor}" />
+		<Setter Property="Foreground" Value="{StaticResource ForegroundColor}" />
+		<Setter Property="FocusVisualStyle" Value="{x:Null}" />
+	</Style>
+
+	<Style x:Key="SigninButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyleBase}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Border
+						x:Name="Border"
+						Background="{TemplateBinding Background}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						CornerRadius="10"
+						Height="{Binding ActualHeight, ElementName=SigninButtonText}"
+						Width="{Binding ActualWidth, ElementName=SigninButtonText}">
+						<ContentPresenter
+							HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+							VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+							TextBlock.Foreground="{TemplateBinding Foreground}">
+							<ContentPresenter.Content>
+								<Grid>
+									<TextBlock
+										x:Name="SigninButtonText"
+										Text="{x:Static resx:Strings.SigninButtonText}"
+										FontSize="18"
+										Padding="20 5"
+										HorizontalAlignment="Center" VerticalAlignment="Center" />
+								</Grid>
+							</ContentPresenter.Content>
+						</ContentPresenter>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter Property="Cursor" Value="Hand" />
+							<Setter Property="Background" Value="{StaticResource OnMouseOveredStateButtonColor}" />
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter Property="Background" Value="{StaticResource DisabledStateButtonColor}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="SignupButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyleBase}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Border
+						x:Name="Border"
+						Background="{TemplateBinding Background}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						CornerRadius="10"
+						Height="{Binding ActualHeight, ElementName=SigninButtonText}"
+						Width="{Binding ActualWidth, ElementName=SigninButtonText}">
+						<ContentPresenter
+							HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+							VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+							TextBlock.Foreground="{TemplateBinding Foreground}">
+							<ContentPresenter.Content>
+								<Grid>
+									<TextBlock
+										x:Name="SigninButtonText"
+										Text="{x:Static resx:Strings.SignupButtonText}"
+										FontSize="18"
+										Padding="20 5"
+										HorizontalAlignment="Center" VerticalAlignment="Center" />
+								</Grid>
+							</ContentPresenter.Content>
+						</ContentPresenter>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter Property="Cursor" Value="Hand" />
+							<Setter Property="Background" Value="{StaticResource OnMouseOveredStateButtonColor}" />
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter Property="Background" Value="{StaticResource DisabledStateButtonColor}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="ListViewStyle" TargetType="{x:Type ListView}">
+		<Setter Property="BorderThickness" Value="0" />
+		<Setter Property="BorderBrush" Value="{x:Null}" />
+		<Setter Property="HorizontalContentAlignment" Value="Left" />
+		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="FocusVisualStyle" Value="{x:Null}" />
+		<Setter Property="Background" Value="{StaticResource SecondaryBackgroundColor}" />
+	</Style>
+
+	<Style x:Key="ListViewItemStyle" TargetType="{x:Type ListViewItem}">
+		<Setter Property="FocusVisualStyle" Value="{x:Null}" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ListViewItem}">
+					<Grid>
+						<Border
+							Background="Transparent"
+							Panel.ZIndex="2">
+							<ContentPresenter
+								Panel.ZIndex="2"
+								HorizontalAlignment="Left" VerticalAlignment="Center" 
+								ContentTemplate="{TemplateBinding ContentTemplate}"
+								Content="{TemplateBinding Content}"/>
+						</Border>
+						<Border 
+							x:Name="IsSelectedBorder"
+							Visibility="Collapsed"
+							Width="5" Height="20"
+							VerticalAlignment="Center" HorizontalAlignment="Left"
+							Margin="5 0 0 0"
+							Background="{StaticResource PrimaryButtonColor}"
+							CornerRadius="3"
+							Panel.ZIndex="3" />
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsSelected" Value="True">
+							<Setter TargetName="IsSelectedBorder" Property="Visibility" Value="Visible" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

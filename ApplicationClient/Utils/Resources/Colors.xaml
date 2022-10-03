@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#0D1117" />
+    <SolidColorBrush x:Key="SecondaryBackgroundColor" Color="#161B22" />
+    <SolidColorBrush x:Key="ForegroundColor" Color="#C9D1D9"/>
+    <SolidColorBrush x:Key="PlaceholderColor" Color="#B0B0B0" />
+    <SolidColorBrush x:Key="InputBackgroundColor" Color="#161B22"/>
+    <Color x:Key="OnMouseOverFieldElement" R="192" G="192" B="192" A="50" />
+    <SolidColorBrush x:Key="IconsColor" Color="#A0A0A0" />
+    <SolidColorBrush x:Key="OnIconMouseOveredStateColor" Color="#b9B9B9" />
+    <SolidColorBrush x:Key="LinkColor" Color="#3CA6DB" />
+    <SolidColorBrush x:Key="PrimaryButtonColor" Color="#238636" />
+    <SolidColorBrush x:Key="OnMouseOveredStateButtonColor" Color="#2EA043" />
+    <SolidColorBrush x:Key="DisabledStateButtonColor" Color="#1E5B2E"/>
+</ResourceDictionary>

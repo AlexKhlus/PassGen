@@ -1,0 +1,50 @@
+﻿<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="AppTitle" xml:space="preserve">
+        <value>PassGen</value>
+    </data>
+    <data name="LoginPlaceholder" xml:space="preserve">
+        <value>Username</value>
+    </data>
+    <data name="PasswordPlaceholder" xml:space="preserve">
+        <value>Password</value>
+    </data>
+    <data name="SigninButtonText" xml:space="preserve">
+        <value>Sign in</value>
+    </data>
+    <data name="SignoutButtonText" xml:space="preserve">
+        <value>Sign out</value>
+    </data>
+    <data name="SignupButtonText" xml:space="preserve">
+        <value>Sign up</value>
+    </data>
+    <data name="ResetAccountText" xml:space="preserve">
+        <value>Auth troubles?</value>
+    </data>
+    <data name="CreateAccountText" xml:space="preserve">
+        <value>Create account</value>
+    </data>
+    <data name="HasAccount" xml:space="preserve">
+        <value>Already have account?</value>
+    </data>
+    <data name="SigninText" xml:space="preserve">
+        <value>Sign in!</value>
+    </data>
+    <data name="EmailPlaceholder" xml:space="preserve">
+        <value>Email</value>
+    </data>
+    <data name="RepeatPasswordPlaceholder" xml:space="preserve">
+        <value>Repeat password</value>
+    </data>
+</root>
