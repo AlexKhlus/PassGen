@@ -14,7 +14,7 @@ public sealed class Repository : IRepository
 	public Repository(IDatabase database) => _database = database;
 
 	public async Task<List<User>> GetUsers() 
-		=> (await _database.QueryAsync<User>($@"select * from User")).ToList();
+		=> (await _database.QueryAsync<User>(@"select * from User")).ToList();
 
 	public async Task<User?> GetUser(int id) 
 		=> await _database.SingleOrDefaultAsync<User>(
@@ -24,15 +24,15 @@ public sealed class Repository : IRepository
 
 	public async Task<User?> GetUser(string username) 
 		=> await _database.SingleOrDefaultAsync<User>(
-			@"select * from User where Username = @Login", 
-			new { Login = username}
+			@"select * from User where Username = @Username", 
+			new { Username = username}
 		);
 
 	public async Task<bool> AddUser(User user) 
 	{
 		var rowsCount = await _database.ExecuteAsync(@"
-insert into User(Username, Password, Email)
-values (@Login, @Password, @Email)", user);
+insert into User(Username, Password)
+values (@Username, @Password)", user);
 
 		return rowsCount >= 1;
 	}

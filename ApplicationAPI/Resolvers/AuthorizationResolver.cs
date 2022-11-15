@@ -3,7 +3,7 @@ using ApplicationAPI.Contracts;
 using ApplicationAPI.Data.Repository.Base;
 
 
-namespace ApplicationAPI;
+namespace ApplicationAPI.Resolvers;
 public interface IAuthorizationResolver
 {
 	Task<LoginResponse> Login(LoginRequest request);

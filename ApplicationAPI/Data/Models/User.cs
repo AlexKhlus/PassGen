@@ -10,7 +10,4 @@ public sealed class User
 
 	[Required] 
 	public string? Password { get; set; }
-
-	[Required, Attributes.EmailAddress, NoWhitespace] 
-	public string? Email { get; set; }
 }

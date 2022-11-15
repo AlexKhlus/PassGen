@@ -26,8 +26,5 @@
 
     <ItemGroup>
       <None Remove="Data\Database\PassGenDB.db" />
-      <Content Include="Data\Database\PassGenDB.db">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
     </ItemGroup>
 </Project>

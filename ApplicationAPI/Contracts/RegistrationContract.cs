@@ -2,13 +2,14 @@
 
 
 namespace ApplicationAPI.Contracts;
-public sealed class LoginRequest
+public sealed class RegistrationRequest
 {
 	[Required] public string? Username { get; init; }
 	[Required] public string? Password { get; init; }
+	[Required] public string? RepeatPassword { get; init; }
 }
 
-public sealed class LoginResponse 
+public sealed class RegistrationResponse 
 {
 	public bool Success { get; init; }
 	public string? ErrorMessage { get; init; }
