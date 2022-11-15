@@ -20,16 +20,16 @@
     <data name="PasswordPlaceholder" xml:space="preserve">
         <value>Пароль</value>
     </data>
-    <data name="SigninButtonText" xml:space="preserve">
+    <data name="SigninButton" xml:space="preserve">
         <value>Войти</value>
     </data>
     <data name="SignoutButtonText" xml:space="preserve">
         <value>Выйти</value>
     </data>
-    <data name="SignupButtonText" xml:space="preserve">
+    <data name="SignupButton" xml:space="preserve">
         <value>Зарегестрироваться</value>
     </data>
-    <data name="ResetAccountText" xml:space="preserve">
+    <data name="ResetAccountPseudolink" xml:space="preserve">
         <value>Проблемы со входом?</value>
     </data>
     <data name="CreateAccountText" xml:space="preserve">
@@ -38,7 +38,7 @@
     <data name="HasAccount" xml:space="preserve">
         <value>Уже есть аккаунт?</value>
     </data>
-    <data name="SigninText" xml:space="preserve">
+    <data name="Signin" xml:space="preserve">
         <value>Войти!</value>
     </data>
     <data name="EmailPlaceholder" xml:space="preserve">
@@ -46,5 +46,14 @@
     </data>
     <data name="RepeatPasswordPlaceholder" xml:space="preserve">
         <value>Повторите пароль</value>
+    </data>
+    <data name="ReturnToSignin" xml:space="preserve">
+        <value>Вернутся</value>
+    </data>
+    <data name="CodePlaceholder" xml:space="preserve">
+        <value>Код подтверждения</value>
+    </data>
+    <data name="RestoreAccountButton" xml:space="preserve">
+        <value>Восстановить аккаунт</value>
     </data>
 </root>
