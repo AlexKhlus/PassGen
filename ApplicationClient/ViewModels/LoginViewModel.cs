@@ -13,7 +13,8 @@ public sealed class LoginViewModel : ViewModel
 
 	public LoginViewModel(
 		LoginCommand loginCommand,
-		NavigateToRegistrationViewModelCommand navigateToRegistrationViewModelCommand
+		NavigateToRegistrationViewCommand navigateToRegistrationViewCommand,
+		NavigateToResetAccountViewCommand navigateToResetAccountViewCommand
 	) 
 	{
 		_username = string.Empty;
@@ -24,7 +25,8 @@ public sealed class LoginViewModel : ViewModel
 		LoginCommand.Started += OnLoginCommandStarted;
 		LoginCommand.Executed += OnLoginCommandExecuted;
 
-		(NavigateToRegistrationViewModelCommand = navigateToRegistrationViewModelCommand).CanExecuteCondition = () => true;
+		(NavigateToRegistrationViewCommand = navigateToRegistrationViewCommand).CanExecuteCondition = () => true;
+		(NavigateResetAccountViewCommand = navigateToResetAccountViewCommand).CanExecuteCondition = () => true;
 	}
 
 	public override void Dispose() => LoginCommand.Dispose();
@@ -66,7 +68,8 @@ public sealed class LoginViewModel : ViewModel
 	}
 
 	public AsyncCommand LoginCommand { get; }
-	public AsyncCommand NavigateToRegistrationViewModelCommand { get; }
+	public AsyncCommand NavigateToRegistrationViewCommand { get; }
+	public AsyncCommand NavigateResetAccountViewCommand { get; }
 
 	private bool CredentialsProvided() => Username?.IsEmptyOrWhitespace() is false && Password?.IsEmptyOrWhitespace() is false;
 	private void OnLoginCommandStarted(object? sender, AsyncCommandStartedEventArgs e) => IsLoggingInInProgress = true;

@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using System.Windows;
+using ApplicationAPI.Data.Repository.Base;
 using ApplicationClient.Utils.Commands;
 using ApplicationClient.Utils.Extensions;
 using ApplicationClient.Views;
@@ -15,13 +16,15 @@ public partial class App : Application
 
 	public App() 
 	{
+		CultureInfo.CurrentUICulture = new CultureInfo("uk-ua", false);
 		_host = Host.CreateDefaultBuilder().ConfigureServices((builder, services) => 
 		{
 			services
 				.AddDataConnection(builder.Configuration.GetConnectionString("Default"))
 				.AddStores()
 				.AddResolvers()
-				.AddViewModels();
+				.AddViewModels()
+				.AddCommands();
 		}).Build();
 	}
 
@@ -31,7 +34,6 @@ public partial class App : Application
 
 		SingleAppInstance.Register(application: this);
 		SingleAppInstance.ShutdownIfAnotherRegistered();
-		CultureInfo.CurrentUICulture = new CultureInfo("uk-ua", false);
 
 		await _host.StartAsync();
 		await _host.Services.GetRequiredService<NavigateToLoginViewCommand>().ExecuteAsync();

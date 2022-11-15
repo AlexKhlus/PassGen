@@ -47,7 +47,7 @@
 				<ListViewItem.Content>
 					<xamlControls:TabButton
 							x:Name="Generator"
-							Command="{Binding NavigateToGeneratorViewModelCommand}"
+							Command="{Binding NavigateToGeneratorViewCommand}"
 							Icon="{StaticResource KeyIcon}" 
 							HasLabel="{Binding IsExtended}"
 							Label="Generator"
@@ -59,7 +59,7 @@
 				<ListViewItem.Content>
 					<xamlControls:TabButton
 							x:Name="Storage"
-							Command="{Binding NavigateToStorageViewModelCommand}"
+							Command="{Binding NavigateToStorageViewCommand}"
 							Icon="{StaticResource KeyIcon}" 
 							HasLabel="{Binding IsExtended}"
 							Label="Storage"

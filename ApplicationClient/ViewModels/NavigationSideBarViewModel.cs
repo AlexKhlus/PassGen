@@ -9,15 +9,15 @@ public sealed class NavigationSideBarViewModel : ViewModel
 	private bool _isExtended;
 
 	public NavigationSideBarViewModel(
-		NavigateToGeneratorViewModelCommand navigateToGeneratorViewModelCommand,
-		NavigateToStorageViewModelCommand navigateToStorageViewModelCommand,
+		NavigateToGeneratorViewCommand navigateToGeneratorViewCommand,
+		NavigateToStorageViewCommand navigateToStorageViewCommand,
 		LogoutCommand logoutCommand,
 
 		ExtendBarCommand extendBarCommand
 	) 
 	{
-		(NavigateToGeneratorViewModelCommand = navigateToGeneratorViewModelCommand).CanExecuteCondition = () => true;
-		(NavigateToStorageViewModelCommand = navigateToStorageViewModelCommand).CanExecuteCondition = () => true;
+		(NavigateToGeneratorViewCommand = navigateToGeneratorViewCommand).CanExecuteCondition = () => true;
+		(NavigateToStorageViewCommand = navigateToStorageViewCommand).CanExecuteCondition = () => true;
 
 		(LogoutCommand = logoutCommand).CanExecuteCondition = () => true;
 		LogoutCommand.Logouted += OnLogouted;
@@ -45,8 +45,8 @@ public sealed class NavigationSideBarViewModel : ViewModel
 		}
 	}
 
-	public AsyncCommand NavigateToGeneratorViewModelCommand { get; }
-	public AsyncCommand NavigateToStorageViewModelCommand { get; }
+	public AsyncCommand NavigateToGeneratorViewCommand { get; }
+	public AsyncCommand NavigateToStorageViewCommand { get; }
 	public LogoutCommand LogoutCommand { get; }
 
 	public ExtendBarCommand ExtendBarCommand { get; }

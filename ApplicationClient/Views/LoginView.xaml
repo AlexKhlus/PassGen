@@ -52,24 +52,24 @@
 				Orientation="Vertical"
 				HorizontalAlignment="Center" VerticalAlignment="Center"
 				Margin="0 10">
-				<!--<Button
+				<Button
 					Height="{Binding ActualHeight, ElementName=AuthTroublesText}"
 					Width="{Binding ActualWidth, ElementName=AuthTroublesText}"
 					Style="{StaticResource PseudoLinkButtonStyle}"
-					Command="{Binding NavigateResetCommand}">
+					Command="{Binding NavigateResetAccountViewCommand}">
 					<Button.Content>
 						<TextBlock
 							x:Name="AuthTroublesText"
-							Text="{x:Static resx:Strings.ResetAccountText}"
+							Text="{x:Static resx:Strings.ResetAccountPseudolink}"
 							Style="{StaticResource PseudoLinkTextBlockStyle}" />
 					</Button.Content>
-				</Button>-->
+				</Button>
 
 				<Button
 					Height="{Binding ActualHeight, ElementName=CreateAccountText}"
 					Width="{Binding ActualWidth, ElementName=CreateAccountText}"
 					Style="{StaticResource PseudoLinkButtonStyle}"
-					Command="{Binding NavigateToRegistrationViewModelCommand}">
+					Command="{Binding NavigateToRegistrationViewCommand}">
 					<Button.Content>
 						<TextBlock
 							x:Name="CreateAccountText"
@@ -80,7 +80,8 @@
 			</StackPanel>
 			<Button
 				Style="{StaticResource SigninButtonStyle}"
-				Command="{Binding LoginCommand}">
+				Command="{Binding LoginCommand}"
+				Content="{x:Static resx:Strings.SigninButton}">
 				<Button.CommandParameter>
 					<MultiBinding Converter="{StaticResource MultipleToSingleParameterConverter}">
 						<Binding Path="Username" />

@@ -18,17 +18,22 @@ public sealed class NavigateToLoginViewCommand : NavigationCommand
 	public NavigateToLoginViewCommand(NavigationService navigationService) : base(navigationService) { }
 }
 
-public sealed class NavigateToRegistrationViewModelCommand : NavigationCommand
+public sealed class NavigateToRegistrationViewCommand : NavigationCommand
 {
-	public NavigateToRegistrationViewModelCommand(NavigationService navigationService) : base(navigationService) { }
+	public NavigateToRegistrationViewCommand(NavigationService navigationService) : base(navigationService) { }
 }
 
-public sealed class NavigateToStorageViewModelCommand : NavigationCommand 
+public sealed class NavigateToResetAccountViewCommand : NavigationCommand
 {
-	public NavigateToStorageViewModelCommand(NavigationService navigationService) : base(navigationService) { }
+	public NavigateToResetAccountViewCommand(NavigationService navigationService) : base(navigationService) { }
 }
 
-public sealed class NavigateToGeneratorViewModelCommand : NavigationCommand 
+public sealed class NavigateToStorageViewCommand : NavigationCommand 
 {
-	public NavigateToGeneratorViewModelCommand(NavigationService navigationService) : base(navigationService) { }
+	public NavigateToStorageViewCommand(NavigationService navigationService) : base(navigationService) { }
+}
+
+public sealed class NavigateToGeneratorViewCommand : NavigationCommand 
+{
+	public NavigateToGeneratorViewCommand(NavigationService navigationService) : base(navigationService) { }
 }

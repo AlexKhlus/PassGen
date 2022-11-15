@@ -1,8 +1,10 @@
-﻿using ApplicationAPI;
+﻿using System;
+using System.IO;
 using ApplicationAPI.Data.Database;
 using ApplicationAPI.Data.Database.Base;
 using ApplicationAPI.Data.Repository;
 using ApplicationAPI.Data.Repository.Base;
+using ApplicationAPI.Resolvers;
 using ApplicationClient.Utils.Commands;
 using ApplicationClient.Utils.Stores;
 using ApplicationClient.ViewModels;
@@ -16,8 +18,16 @@ public static class ServiceCollectionExtensions
 	public static IServiceCollection AddDataConnection(
 		this IServiceCollection services,
 		string connectionString
-	) 
+	)
 	{
+		var dbFilePath = connectionString.Replace("DataSource=", string.Empty);
+		var dbDirectory = dbFilePath.Replace(@"\PassGen.db", string.Empty);
+		var isDbFileCreated = Directory.Exists(dbDirectory) && File.Exists(dbFilePath);
+		if(isDbFileCreated is false)
+		{
+			Directory.CreateDirectory(dbDirectory);
+			File.Create(dbFilePath);
+		}
 		var connectionFactory = new DbConnectionFactory(connectionString);
 		services
 			.AddSingleton<IDbConnectionFactory>(connectionFactory)
@@ -39,53 +49,59 @@ public static class ServiceCollectionExtensions
 
 	public static IServiceCollection AddResolvers(this IServiceCollection services)
 	{
-		services.AddTransient<IAuthorizationResolver, AuthorizationResolver>();
+		services
+			.AddTransient<IAuthorizationResolver, AuthorizationResolver>()
+			.AddTransient<IAccountResolver, AccountResolver>();
 
 		return services;
 	}
 
-	public static IServiceCollection AddViewModels(this IServiceCollection services)
+	public static IServiceCollection AddViewModels(this IServiceCollection services) 
 	{
 		services
 			.AddSingleton<MainWindowViewModel>()
 			.AddSingleton<MainWindow>(provider => new () { DataContext = provider.GetRequiredService<MainWindowViewModel>() })
 
 			.AddTransient<LoginViewModel>()
+			.AddTransient<RegistrationViewModel>()
+			.AddTransient<ResetAccountViewModel>()
+
+			.AddTransient<GeneratorViewModel>()
+			.AddTransient<StorageViewModel>();
+
+		return services;
+	}
+
+	public static IServiceCollection AddCommands(this IServiceCollection services)
+	{
+		services
 			.AddTransient<NavigateToLoginViewCommand>(provider => new (navigationService: new (
 				navigationStore: provider.GetRequiredService<NavigationStore>(),
 				destinationViewModel: provider.GetRequiredService<LoginViewModel>
 			)))
-
-			.AddTransient<RegistrationViewModel>()
-			.AddTransient<NavigateToRegistrationViewModelCommand>(provider => new (navigationService: new (
+			.AddTransient<NavigateToRegistrationViewCommand>(provider => new (navigationService: new (
 				navigationStore: provider.GetRequiredService<NavigationStore>(),
 				destinationViewModel: provider.GetRequiredService<RegistrationViewModel>
 			)))
+			.AddTransient<NavigateToResetAccountViewCommand>(provider => new (navigationService: new (
+				navigationStore: provider.GetRequiredService<NavigationStore>(),
+				destinationViewModel: provider.GetRequiredService<ResetAccountViewModel>
+			)))
 
-			.AddTransient<GeneratorViewModel>()
-			.AddTransient<NavigateToGeneratorViewModelCommand>(provider => new (navigationService: new (
+			.AddTransient<NavigateToGeneratorViewCommand>(provider => new (navigationService: new (
 				navigationStore: provider.GetRequiredService<NavigationStore>(),
 				destinationViewModel: provider.GetRequiredService<GeneratorViewModel>
 			)))
-
-			.AddTransient<StorageViewModel>()
-			.AddTransient<NavigateToStorageViewModelCommand>(provider => new (navigationService: new (
+			.AddTransient<NavigateToStorageViewCommand>(provider => new (navigationService: new (
 				navigationStore: provider.GetRequiredService<NavigationStore>(),
 				destinationViewModel: provider.GetRequiredService<StorageViewModel>
 			)))
 
-			.AddTransient<LoginCommand>(provider => new (navigationService: new (
-				navigationStore: provider.GetRequiredService<NavigationStore>(),
-				destinationViewModel: provider.GetRequiredService<GeneratorViewModel>
-			), authorizationResolver: provider.GetRequiredService<IAuthorizationResolver>()))
-
-			.AddTransient<LogoutCommand>(provider => new (navigationService: new (
-				navigationStore: provider.GetRequiredService<NavigationStore>(),
-				destinationViewModel: provider.GetRequiredService<LoginViewModel>
-			)))
+			.AddTransient<LoginCommand>()
+			.AddTransient<LogoutCommand>()
+			.AddTransient<RegisterAccountCommand>()
 
 			.AddTransient<ExtendBarCommand>()
-
 			.AddTransient<NavigationSideBarViewModel>();
 
 		return services;
