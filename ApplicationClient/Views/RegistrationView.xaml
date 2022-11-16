@@ -34,10 +34,28 @@
 				Text="{Binding Username,
 			    	Mode=TwoWay,
 			    	UpdateSourceTrigger=PropertyChanged}"
-				Placeholder="{x:Static resx:Strings.LoginPlaceholder}"
+				Placeholder="{x:Static resx:Strings.UsernamePlaceholder}"
 				HasClearButton="True"
 				HasLeadingIcon="True"
 				LeadingIcon="{StaticResource UserIcon}" />
+
+			<xamlControls:CustomCombobox
+				Style="{StaticResource CustomComboboxStyle}"
+				ItemsSource="{Binding SecretQuestions}"
+				SelectedItem="{Binding SelectedSecretQuestion, 
+					Mode=TwoWay, 
+					UpdateSourceTrigger=PropertyChanged}" />
+
+			<xamlControls:CustomizableField
+				Style="{StaticResource CustomizeFieldStyle}"
+				Text="{Binding SecretAnswer,
+			    	Mode=TwoWay,
+			    	UpdateSourceTrigger=PropertyChanged}"
+				Placeholder="{x:Static resx:Strings.SecretAnswerPlaceholder}"
+				HasClearButton="True"
+				HasLeadingIcon="True"
+				LeadingIcon="{StaticResource KeyIcon}" />
+
 			<xamlControls:BindablePasswordBox
 				Style="{StaticResource BindablePasswordStyle}"
 				Password="{Binding Password,
@@ -46,6 +64,7 @@
 				Placeholder="{x:Static resx:Strings.PasswordPlaceholder}"
 				HasLeadingIcon="True"
 				LeadingIcon="{StaticResource PasswordIcon}" />
+
 			<xamlControls:BindablePasswordBox
 				Style="{StaticResource BindablePasswordStyle}"
 				Password="{Binding RepeatPassword,
@@ -80,6 +99,8 @@
 							<Binding Path="Username" />
 							<Binding Path="Password" />
 							<Binding Path="RepeatPassword" />
+							<Binding Path="SelectedSecretQuestion" />
+							<Binding Path="SecretAnswer" />
 						</MultiBinding>
 					</Button.CommandParameter>
 				</Button>

@@ -6,18 +6,19 @@ using ApplicationClient.Utils.Commands.Base;
 
 
 namespace ApplicationClient.Utils.Commands;
-public sealed class RegisterAccountCommand : AsyncCommand
+public class ResetPasswordCommand : AsyncCommand
 {
 	private readonly IAccountResolver _accountResolver;
 	private readonly NavigateToLoginViewCommand _navigateToLoginViewCommand;
 
-	public RegisterAccountCommand(
-		IAccountResolver accountResolver, 
+	public ResetPasswordCommand(
+		IAccountResolver accountResolver,
 		NavigateToLoginViewCommand navigateToLoginViewCommand
 	) 
 	{
 		_accountResolver = accountResolver;
 		_navigateToLoginViewCommand = navigateToLoginViewCommand;
+
 	}
 
 	public override async Task ExecuteAsync(object? parameter = null) 
@@ -25,30 +26,21 @@ public sealed class RegisterAccountCommand : AsyncCommand
 		var parameters = (object[])parameter!;
 		var (
 			username,
-			password, 
-			repeatPassword,
-			secretQuestion,
-			secretAnswer
+			newPassword
 		) = (
 			parameters[0].ToString()!,
-			parameters[1].ToString()!,
-			parameters[2].ToString()!,
-			parameters[3].ToString()!,
-			parameters[4].ToString()!
+			parameters[1].ToString()!
 		);
 
-		var response = await _accountResolver.RegisterAccount(new () {
+		var response = await _accountResolver.ResetPassword(new () {
 			Username = username,
-			Password = password,
-			RepeatPassword = repeatPassword,
-			SecretQuestion = secretQuestion,
-			SecretAnswer = secretAnswer
+			NewPassword = newPassword
 		});
 		if(response.Success)
 		{
 			await Task.Delay(1000);
 			await _navigateToLoginViewCommand.ExecuteAsync();
 		}
-		else MessageBox.Show($"Wrong credentials!{Environment.NewLine}{response.ErrorMessage}");
+		else MessageBox.Show($"Could not change password!{Environment.NewLine}{response.ErrorMessage}");
 	}
 }

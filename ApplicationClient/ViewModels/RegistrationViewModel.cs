@@ -1,6 +1,10 @@
-﻿using ApplicationClient.Utils.Commands;
+﻿using System.Collections.Generic;
+using System.Linq;
+using ApplicationAPI.Data.Repository;
+using ApplicationClient.Utils.Commands;
 using ApplicationClient.Utils.Commands.Base;
 using ApplicationClient.Utils.Extensions;
+using ApplicationClient.Utils.Resources;
 using ApplicationClient.ViewModels.Base;
 
 
@@ -11,13 +15,20 @@ public sealed class RegistrationViewModel : ViewModel
 	private string? _password;
 	private string? _repeatPassword;
 
+	private string? _selectedSecretQuestion;
+	private string? _secretAnswer;
+
 	public RegistrationViewModel(
 		NavigateToLoginViewCommand navigateToLoginViewCommand,
-		RegisterAccountCommand registerAccountCommand
+		RegisterAccountCommand registerAccountCommand,
+		ISecretQuestionRepository secretQuestionRepository
 	) 
 	{
 		(NavigateLoginCommand = navigateToLoginViewCommand).CanExecuteCondition = () => true;
 		(RegisterAccountCommand = registerAccountCommand).CanExecuteCondition = CredentialsProvided;
+
+		(SecretQuestions = new () { Strings.SecretQuestionDefault }).AddRange(secretQuestionRepository.GetQuestions().Result);
+		SelectedSecretQuestion = SecretQuestions.First();
 	}
 
 	public string? Username 
@@ -59,11 +70,42 @@ public sealed class RegistrationViewModel : ViewModel
 		}
 	}
 
+	public List<string?> SecretQuestions { get; }
+
+	public string? SelectedSecretQuestion 
+	{
+		get => _selectedSecretQuestion;
+		set 
+		{
+			if(string.Equals(value, _selectedSecretQuestion)) return;
+
+			_selectedSecretQuestion = value;
+			InvokePropertyChanged();
+			RegisterAccountCommand.InvokeCanExecuteChanged();
+		}
+	}
+
+	public string? SecretAnswer 
+	{
+		get => _secretAnswer;
+		set 
+		{
+			if(string.Equals(value, _secretAnswer)) return;
+
+			_secretAnswer = value;
+			InvokePropertyChanged();
+			RegisterAccountCommand.InvokeCanExecuteChanged();
+		}
+	}
+
 	public AsyncCommand NavigateLoginCommand { get; }
 	public AsyncCommand RegisterAccountCommand { get; }
 
 	private bool CredentialsProvided()
 		=>  Username?.IsEmptyOrWhitespace() is false &&
 			Password?.IsEmptyOrWhitespace() is false &&
-			RepeatPassword?.IsEmptyOrWhitespace() is false;
+			RepeatPassword?.IsEmptyOrWhitespace() is false &&
+			string.Equals(Password, RepeatPassword) &&
+			string.Equals(SelectedSecretQuestion, SecretQuestions.First()) is false &&
+			SecretAnswer?.IsEmptyOrWhitespace() is false;
 }

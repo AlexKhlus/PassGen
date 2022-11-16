@@ -37,7 +37,7 @@
 			Icon="{StaticResource BurgerMenu}"
 			HorizontalContentAlignment="Left" />
 
-		<ListView 
+		<ListView
 			Grid.Row="1"
 			Style="{StaticResource ListViewStyle}"
 			x:Name="ListView">
@@ -46,24 +46,24 @@
 				IsSelected="True">
 				<ListViewItem.Content>
 					<xamlControls:TabButton
-							x:Name="Generator"
-							Command="{Binding NavigateToGeneratorViewCommand}"
-							Icon="{StaticResource KeyIcon}" 
-							HasLabel="{Binding IsExtended}"
-							Label="Generator"
-							PreviewMouseUp="OnMouseUp"/>
+						x:Name="Generator"
+						Command="{Binding NavigateToGeneratorViewCommand}"
+						Icon="{StaticResource KeyIcon}"
+						HasLabel="{Binding IsExtended}"
+						Label="Generator"
+						PreviewMouseUp="OnMouseUp" />
 				</ListViewItem.Content>
 			</ListViewItem>
 			<ListViewItem
 				Style="{StaticResource ListViewItemStyle}">
 				<ListViewItem.Content>
 					<xamlControls:TabButton
-							x:Name="Storage"
-							Command="{Binding NavigateToStorageViewCommand}"
-							Icon="{StaticResource KeyIcon}" 
-							HasLabel="{Binding IsExtended}"
-							Label="Storage"
-							PreviewMouseUp="OnMouseUp" />
+						x:Name="Storage"
+						Command="{Binding NavigateToStorageViewCommand}"
+						Icon="{StaticResource KeyIcon}"
+						HasLabel="{Binding IsExtended}"
+						Label="Storage"
+						PreviewMouseUp="OnMouseUp" />
 				</ListViewItem.Content>
 			</ListViewItem>
 		</ListView>

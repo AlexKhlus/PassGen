@@ -14,7 +14,7 @@
     <data name="AppTitle" xml:space="preserve">
         <value>PassGen</value>
     </data>
-    <data name="LoginPlaceholder" xml:space="preserve">
+    <data name="UsernamePlaceholder" xml:space="preserve">
         <value>Ім'я користувача</value>
     </data>
     <data name="PasswordPlaceholder" xml:space="preserve">
@@ -29,7 +29,7 @@
     <data name="SignupButton" xml:space="preserve">
         <value>Зареєструватись</value>
     </data>
-    <data name="ResetAccountPseudolink" xml:space="preserve">
+    <data name="ResetPasswordPseudolink" xml:space="preserve">
         <value>Проблеми із входом?</value>
     </data>
     <data name="CreateAccountText" xml:space="preserve">
@@ -53,7 +53,13 @@
     <data name="CodePlaceholder" xml:space="preserve">
         <value>Код підтверження</value>
     </data>
-    <data name="RestoreAccountButton" xml:space="preserve">
-        <value>Відновити аккаунт</value>
+    <data name="RestorePasswordButton" xml:space="preserve">
+        <value>Відновити пароль</value>
+    </data>
+    <data name="SecretAnswerPlaceholder" xml:space="preserve">
+        <value>Секретна відповідь</value>
+    </data>
+    <data name="SecretQuestionDefault" xml:space="preserve">
+        <value>Оберіть секретне питання</value>
     </data>
 </root>

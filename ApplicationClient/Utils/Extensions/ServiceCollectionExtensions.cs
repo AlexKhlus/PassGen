@@ -1,9 +1,7 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using ApplicationAPI.Data.Database;
 using ApplicationAPI.Data.Database.Base;
 using ApplicationAPI.Data.Repository;
-using ApplicationAPI.Data.Repository.Base;
 using ApplicationAPI.Resolvers;
 using ApplicationClient.Utils.Commands;
 using ApplicationClient.Utils.Stores;
@@ -21,7 +19,7 @@ public static class ServiceCollectionExtensions
 	)
 	{
 		var dbFilePath = connectionString.Replace("DataSource=", string.Empty);
-		var dbDirectory = dbFilePath.Replace(@"\PassGen.db", string.Empty);
+		var dbDirectory = dbFilePath.Replace(@"\PassGenDB.db", string.Empty);
 		var isDbFileCreated = Directory.Exists(dbDirectory) && File.Exists(dbFilePath);
 		if(isDbFileCreated is false)
 		{
@@ -35,7 +33,8 @@ public static class ServiceCollectionExtensions
 			.AddScoped<IDatabase, Database>()
 			.AddScoped<IRepositoryFactory, RepositoryFactory>()
 
-			.AddTransient<IRepository, Repository>();
+			.AddTransient<IUserRepository, UserRepository>()
+			.AddTransient<ISecretQuestionRepository, SecretQuestionRepository>();
 
 		return services;
 	}
@@ -64,7 +63,7 @@ public static class ServiceCollectionExtensions
 
 			.AddTransient<LoginViewModel>()
 			.AddTransient<RegistrationViewModel>()
-			.AddTransient<ResetAccountViewModel>()
+			.AddTransient<ResetPasswordViewModel>()
 
 			.AddTransient<GeneratorViewModel>()
 			.AddTransient<StorageViewModel>();
@@ -85,7 +84,7 @@ public static class ServiceCollectionExtensions
 			)))
 			.AddTransient<NavigateToResetAccountViewCommand>(provider => new (navigationService: new (
 				navigationStore: provider.GetRequiredService<NavigationStore>(),
-				destinationViewModel: provider.GetRequiredService<ResetAccountViewModel>
+				destinationViewModel: provider.GetRequiredService<ResetPasswordViewModel>
 			)))
 
 			.AddTransient<NavigateToGeneratorViewCommand>(provider => new (navigationService: new (
@@ -100,6 +99,7 @@ public static class ServiceCollectionExtensions
 			.AddTransient<LoginCommand>()
 			.AddTransient<LogoutCommand>()
 			.AddTransient<RegisterAccountCommand>()
+			.AddTransient<ResetPasswordCommand>()
 
 			.AddTransient<ExtendBarCommand>()
 			.AddTransient<NavigationSideBarViewModel>();

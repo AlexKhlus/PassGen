@@ -1,11 +1,12 @@
-﻿<UserControl x:Class="ApplicationClient.XamlControls.CustomizableField"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d"
-             MinWidth="300"
-             x:Name="CustomizeFieldControl">
+﻿<UserControl
+	x:Class="ApplicationClient.XamlControls.CustomizableField"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	mc:Ignorable="d"
+	MinWidth="300"
+	x:Name="CustomizeFieldControl">
 	<UserControl.Resources>
 		<ResourceDictionary>
 			<ResourceDictionary.MergedDictionaries>
@@ -115,13 +116,15 @@
 				<Setter Property="Template">
 					<Setter.Value>
 						<ControlTemplate TargetType="{x:Type Button}">
-							<Border x:Name="Border"
-							        CornerRadius="50"
-							        Background="{TemplateBinding Background}">
-								<Path Width="20"
-								      Stretch="Uniform"
-								      Fill="{TemplateBinding Foreground}"
-								      Data="{Binding LeadingIcon, ElementName=CustomizeFieldControl}" />
+							<Border
+								x:Name="Border"
+								CornerRadius="50"
+								Background="{TemplateBinding Background}">
+								<Path
+									Width="20"
+									Stretch="Uniform"
+									Fill="{TemplateBinding Foreground}"
+									Data="{Binding LeadingIcon, ElementName=CustomizeFieldControl}" />
 							</Border>
 							<ControlTemplate.Triggers>
 								<DataTrigger Binding="{Binding HasLeadingIcon, ElementName=CustomizeFieldControl}" Value="False">
@@ -145,13 +148,15 @@
 				<Setter Property="Template">
 					<Setter.Value>
 						<ControlTemplate TargetType="{x:Type Button}">
-							<Border x:Name="Border"
-							        CornerRadius="50"
-							        Background="{TemplateBinding Background}">
-								<Path Width="15"
-								      Stretch="Uniform"
-								      Fill="{TemplateBinding Foreground}"
-								      Data="{StaticResource ClearIcon}" />
+							<Border
+								x:Name="Border"
+								CornerRadius="50"
+								Background="{TemplateBinding Background}">
+								<Path
+									Width="15"
+									Stretch="Uniform"
+									Fill="{TemplateBinding Foreground}"
+									Data="{StaticResource ClearIcon}" />
 							</Border>
 							<ControlTemplate.Triggers>
 								<DataTrigger Binding="{Binding HasClearButton, ElementName=CustomizeFieldControl}" Value="False">
@@ -186,28 +191,33 @@
 			</Style>
 		</ResourceDictionary>
 	</UserControl.Resources>
-	<Border Height="70" Width="{Binding Width, ElementName=CustomizeFieldControl}"
-	        Background="{StaticResource InputBackgroundColor}"
-	        CornerRadius="10"
-	        MouseDown="OnFieldClick">
+	<Border
+		Width="{Binding Width, ElementName=CustomizeFieldControl}"
+		Background="{StaticResource InputBackgroundColor}"
+		CornerRadius="10"
+		MouseDown="OnFieldClick">
 		<Grid Margin="14 6">
-			<TextBlock x:Name="Title"
-			           Focusable="False"
-			           Style="{StaticResource CredentialTextTitle}" />
+			<TextBlock
+				x:Name="Title"
+				Focusable="False"
+				Style="{StaticResource CredentialTextTitle}" />
 
-			<Button x:Name="LeadingIconObj"
-			        Focusable="False"
-			        Style="{StaticResource LeadingIcon}"
-			        Click="OnLeadingIconClick" />
+			<Button
+				x:Name="LeadingIconObj"
+				Focusable="False"
+				Style="{StaticResource LeadingIcon}"
+				Click="OnLeadingIconClick" />
 
-			<TextBox x:Name="TextField"
-			         Style="{StaticResource CredentialsText}"
-			         TextChanged="OnTextChanged" />
+			<TextBox
+				x:Name="TextField"
+				Style="{StaticResource CredentialsText}"
+				TextChanged="OnTextChanged" />
 
-			<Button x:Name="ClearButton"
-			        Focusable="False"
-			        Style="{StaticResource ClearButton}"
-			        Click="OnClearButtonClick" />
+			<Button
+				x:Name="ClearButton"
+				Focusable="False"
+				Style="{StaticResource ClearButton}"
+				Click="OnClearButtonClick" />
 		</Grid>
 	</Border>
 </UserControl>

@@ -17,6 +17,13 @@
 
 	<Style x:Key="CustomizeFieldStyle" TargetType="{x:Type cc:CustomizableField}">
 		<Setter Property="Width" Value="300" />
+		<Setter Property="Height" Value="70" />
+		<Setter Property="Margin" Value="0 10" />
+	</Style>
+
+	<Style x:Key="CustomComboboxStyle" TargetType="{x:Type cc:CustomCombobox}">
+		<Setter Property="Width" Value="300" />
+		<Setter Property="Height" Value="70" />
 		<Setter Property="Margin" Value="0 10" />
 	</Style>
 
@@ -134,7 +141,7 @@
 								<Grid>
 									<TextBlock
 										x:Name="SigninButtonText"
-										Text="{x:Static resx:Strings.SignupButton}"
+										Text="{TemplateBinding Content}"
 										FontSize="18"
 										Padding="20 5"
 										HorizontalAlignment="Center" VerticalAlignment="Center" />
@@ -198,5 +205,35 @@
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>
+	</Style>
+
+	<Style TargetType="{x:Type ComboBoxItem}">
+		<Setter Property="FontWeight" Value="Regular" />
+		<Setter Property="FontSize" Value="20" />
+		<Setter Property="BorderThickness" Value="0" />
+		<Setter Property="Padding" Value="11 10" />
+		<Setter Property="Margin" Value="0 0 4 0" />
+		<Setter Property="FocusVisualStyle" Value="{x:Null}" />
+		<Setter Property="Foreground" Value="{StaticResource ForegroundColor}" />
+
+		<Style.Triggers>
+			<Trigger Property="IsMouseOver" Value="True">
+				<Setter Property="Background" Value="{StaticResource OnIconMouseOveredStateColor}" />
+			</Trigger>
+			<Trigger Property="IsSelected" Value="True">
+				<Setter Property="Background" Value="{StaticResource OnIconMouseOveredStateColor}" />
+			</Trigger>
+		</Style.Triggers>
+		<Style.Resources>
+			<Style TargetType="Border">
+				<Setter Property="CornerRadius" Value="7" />
+			</Style>
+		</Style.Resources>
+	</Style>
+
+	<Style x:Key="LabelStyle" TargetType="{x:Type TextBlock}">
+		<Setter Property="FontSize" Value="14" />
+		<Setter Property="Margin" Value="8 0 8 4" />
+		<Setter Property="VerticalAlignment" Value="Bottom" />
 	</Style>
 </ResourceDictionary>

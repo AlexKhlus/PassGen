@@ -8,97 +8,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62cab3b6-e474-474b-bebb-97e432da806e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.PassGen/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.PassGen/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.PassGen/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.PassGen/.idea/dataSources/151178ae-f98a-44ed-8899-efef2b8c27ca.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.PassGen/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.PassGen/.idea/riderMarkupCache.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.PassGen/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationAPI/ApplicationAPI.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationAPI/Attributes/Base/ExtendedRegexValidationAttribute.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationAPI/Attributes/Base/ExtendedValidationAttribute.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationAPI/Attributes/Base/ValidationAttributeAddon.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationAPI/Attributes/EmailAddress.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationAPI/Attributes/NoWhitespace.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationAPI/AuthorizationResolver.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationAPI/Contracts/LoginContract.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationAPI/Data/Database/Base/IDatabase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationAPI/Data/Database/Base/IDbConnectionFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationAPI/Data/Database/Database.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationAPI/Data/Database/DbConnectionFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationAPI/Data/Database/PassGenDB.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationAPI/Data/Models/User.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationAPI/Data/Repository/Base/IRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationAPI/Data/Repository/Base/IRepositoryFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationAPI/Data/Repository/Repository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationAPI/Data/Repository/RepositoryFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationAPI/Exceptions/RegexAddonException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationAPI/appsettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Commands/Base/AsyncCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Commands/ExtendBarCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Commands/LoginCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Commands/LogoutCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Commands/NavigationCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Converters/BoolToVisibilityConverter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Converters/InverseBooleanConverter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Converters/MultipleToSingleParameterConverter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Database/PassGenDB.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Extensions/ObservableCollectionExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Extensions/ServiceCollectionExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Extensions/SingleAppInstance.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Extensions/StringExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Resources/Colors.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Resources/Fonts.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Resources/Icons.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Resources/Strings.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Resources/Strings.en.resx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Resources/Strings.resx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Resources/Strings.ru.resx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Resources/Strings.uk-ua.resx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Resources/Styles.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Services/INavigationService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Services/NavigationService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Stores/NavigationStore.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Stores/UserStore.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/ViewModels/Base/ViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/ViewModels/LoginViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/ViewModels/MainWindowViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/ViewModels/NavigationSideBarViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/ViewModels/RegistrationViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/ViewModels/StorageViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Views/GeneratorView.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Views/GeneratorView.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Views/LoginView.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Views/LoginView.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Views/NavigationSideBarView.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Views/NavigationSideBarView.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Views/RegistrationView.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Views/RegistrationView.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Views/StorageView.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/Views/StorageView.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/XamlControls/BindablePasswordBox.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/XamlControls/BindablePasswordBox.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/XamlControls/CustomCombobox.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/XamlControls/CustomCombobox.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/XamlControls/CustomizableField.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/XamlControls/CustomizableField.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/XamlControls/TabButton.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/XamlControls/TabButton.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/XamlControls/TextArea.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationClient/XamlControls/TextArea.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PassGen.sln.DotSettings.user" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationAPI/Data/Repository/SecretQuestionRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Commands/ResetPasswordCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationClient/ViewModels/ResetPasswordViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationClient/XamlControls/CustomComboboxWithLabel.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationClient/XamlControls/CustomComboboxWithLabel.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PassGen/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PassGen/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PassGen/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PassGen/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PassGen/.idea/dataSources/151178ae-f98a-44ed-8899-efef2b8c27ca.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PassGen/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PassGen/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationAPI/Contracts/RegistrationContract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationAPI/Contracts/RegistrationContract.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationAPI/Contracts/ResetAccountContract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationAPI/Contracts/ResetPasswordContract.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationAPI/Data/Database/DbConnectionFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationAPI/Data/Database/DbConnectionFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationAPI/Data/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationAPI/Data/Models/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationAPI/Data/Repository/Base/IRepository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationAPI/Data/Repository/Base/IRepositoryFactory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationAPI/Data/Repository/Repository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationAPI/Data/Repository/UserRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationAPI/Data/Repository/RepositoryFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationAPI/Data/Repository/RepositoryFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationAPI/Resolvers/AccountResolver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationAPI/Resolvers/AccountResolver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationAPI/Resolvers/AuthorizationResolver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationAPI/Resolvers/AuthorizationResolver.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApplicationClient/App.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationClient/App.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApplicationClient/App.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationClient/App.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApplicationClient/ApplicationClient.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationClient/ApplicationClient.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApplicationClient/Configurations/Annotations.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApplicationClient/Configurations/AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApplicationClient/ViewModels/Base/ViewModelBase.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApplicationClient/ViewModels/MainViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationClient/ViewModels/GeneratorViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApplicationClient/Views/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationClient/Views/MainWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApplicationClient/Views/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationClient/Views/MainWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PassGen.sln" beforeDir="false" afterPath="$PROJECT_DIR$/PassGen.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationClient/Utils/Commands/RegisterAccountCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Commands/RegisterAccountCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationClient/Utils/Extensions/ServiceCollectionExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Extensions/ServiceCollectionExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationClient/Utils/Resources/Icons.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Resources/Icons.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationClient/Utils/Resources/Strings.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Resources/Strings.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationClient/Utils/Resources/Strings.en.resx" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Resources/Strings.en.resx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationClient/Utils/Resources/Strings.resx" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Resources/Strings.resx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationClient/Utils/Resources/Strings.ru.resx" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Resources/Strings.ru.resx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationClient/Utils/Resources/Strings.uk-ua.resx" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Resources/Strings.uk-ua.resx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationClient/Utils/Resources/Styles.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationClient/Utils/Resources/Styles.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationClient/ViewModels/RegistrationViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationClient/ViewModels/RegistrationViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationClient/Views/LoginView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationClient/Views/LoginView.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationClient/Views/NavigationSideBarView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationClient/Views/NavigationSideBarView.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationClient/Views/RegistrationView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationClient/Views/RegistrationView.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationClient/Views/ResetAccountView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationClient/Views/ResetPasswordView.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationClient/Views/ResetAccountView.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationClient/Views/ResetPasswordView.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationClient/XamlControls/BindablePasswordBox.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationClient/XamlControls/BindablePasswordBox.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationClient/XamlControls/CustomCombobox.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationClient/XamlControls/CustomCombobox.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationClient/XamlControls/CustomizableField.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationClient/XamlControls/CustomizableField.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationClient/XamlControls/TabButton.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationClient/XamlControls/TabButton.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationClient/XamlControls/TextArea.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationClient/XamlControls/TextArea.xaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +56,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/053b85f8d2e34e41ad67249cf19e5530f87cb0/1b/8da2b5ae/CommandHelpers.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/053b85f8d2e34e41ad67249cf19e5530f87cb0/2c/f74a0376/PropertyPathWorker.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0b2b71b9a548475f9db13de2a63308dea234a8/16/daf99b33/SafeFileHandle.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0b2b71b9a548475f9db13de2a63308dea234a8/c6/6b248201/EventHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1a6da210a4464c0bac579d5ca14bc7012d8680/a1/7178983b/IDbConnection.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2a573c24102c480d9ef05b440bf16fe716488/d2/926ffbb4/ICommand.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/48e2fc1a816a43c782710c9d5294f283c600/26/3b2b14a2/raw.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5e6058edac79482399df2ce2a468d4a221400/87/513e4057/LoggerConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
@@ -117,13 +72,20 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/875e6cb75f6b41c8aac933e8ca1422b09200/3f/9c3e395e/NavigationStore.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8c8e2e1a36fa49dcb2c9dcdaf5ce2254843c80/d9/7c251ed2/UIElement.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/24ac3be64106f61db9d50661dbd29a1a9d1b9f158e91112beb4cdd6c994b8/CallSiteChain.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27b91272f348469b8fccc471c1ccd767f57a64f55a44975790bfae805b4ebb/Future.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3d7feeea46f0a7edf6cb722578ee59fa71a0641fbdb2b3662221f519f8e9efe5/XamlReader.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4b95b9936aceaca7b7986abdecd044bd5135c35a492a08b2c3bb2f907882/HostBuilder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/575c31ecc35a636b6f962cb71d53992552941a18982aae1c8e6c16305cc3761b/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6518e12429e640b855e84dbcb556279a6dcdecc0f25132fcbc5510f956f771e7/CallSiteFactory.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b26c3ab2885ae1e2397c50e3e6819ad88ed89adf3f8ee61523986ef3a4fbcf/Application.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b3ebd3b594b3c741b8ab5e39d0ff563f5e45652f1586fb45576828e8cf331e8/CommandHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b6f38579d53ac41e10383ded5e9159339cd0ffd18fb4d756faea93154ba/Window.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c32172f87fe7c203c4cb78b02e748a85b86f97cd3fbf051f55c9d3b709de/FrameworkElement.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c6ad457575d35dcbff26c9a5e3fb1d92f1d3c55f25ef6ebf475367b5d8/List.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ddb458e220de429bdfd83ea69a2341a5ac69c1125f7e12175eed36f51feb20a5/ManifestBasedResourceGroveler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e0bea4e5f03899efe75dc4dcf582f230702687c5ac6269866345ce4aae5d8a36/ServiceProviderServiceExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f3b9684f72bc2cc435eb694f7cc86eca8c240d2d1cefa1e8697a61f1f2f27f/SafeFileHandle.Windows.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f573058e62dde79a672af14fb2c68f6697328ca395605231b1d6b1413656f/FileSystem.DirectoryCreation.Windows.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ApplicationClient/App.xaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ApplicationClient/Views/MainWindow.xaml.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -141,34 +103,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "XThreadsFramesViewSplitterKey": "0.36525613",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.sourceCode.C#",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.36525613&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.C#&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
     ],
-    "rider.external.source.directories": [
-      "C:\\Users\\teenw\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\teenw\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\teenw\\AppData\\Local\\Symbols\\src"
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\teenw\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\teenw\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\teenw\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="ApplicationClient" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -264,7 +226,18 @@
       <workItem from="1662988720483" duration="3209000" />
       <workItem from="1663004634061" duration="5800000" />
       <workItem from="1663078583913" duration="1092000" />
-      <workItem from="1664807851919" duration="2527000" />
+      <workItem from="1664807851919" duration="5039000" />
+      <workItem from="1664812979158" duration="842000" />
+      <workItem from="1664813853765" duration="774000" />
+      <workItem from="1664881686245" duration="210000" />
+      <workItem from="1664889379050" duration="499000" />
+      <workItem from="1664964438931" duration="4247000" />
+      <workItem from="1665327956088" duration="109000" />
+      <workItem from="1665328093038" duration="939000" />
+      <workItem from="1668510589977" duration="7767000" />
+      <workItem from="1668548952057" duration="3660000" />
+      <workItem from="1668586023111" duration="15052000" />
+      <workItem from="1668611016827" duration="4396000" />
     </task>
     <servers />
   </component>
@@ -297,45 +270,6 @@
           </properties>
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ApplicationClient/Utils/Commands/LoginCommand.cs</url>
-          <line>21</line>
-          <properties documentPath="D:\dev\c-sharp\PassGen\ApplicationClient\Utils\Commands\LoginCommand.cs" initialLine="21" containingFunctionPresentation="method 'ExecuteAsync'">
-            <startOffsets>
-              <option value="560" />
-            </startOffsets>
-            <endOffsets>
-              <option value="561" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ApplicationAPI/AuthorizationResolver.cs</url>
-          <line>25</line>
-          <properties documentPath="D:\dev\c-sharp\PassGen\ApplicationAPI\AuthorizationResolver.cs" initialLine="25" containingFunctionPresentation="method 'Login'">
-            <startOffsets>
-              <option value="615" />
-            </startOffsets>
-            <endOffsets>
-              <option value="670" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ApplicationClient/Utils/Extensions/ServiceCollectionExtensions.cs</url>
-          <line>19</line>
-          <properties documentPath="D:\dev\c-sharp\PassGen\ApplicationClient\Utils\Extensions\ServiceCollectionExtensions.cs" initialLine="19" containingFunctionPresentation="method 'AddDataConnection'">
-            <startOffsets>
-              <option value="592" />
-            </startOffsets>
-            <endOffsets>
-              <option value="593" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>

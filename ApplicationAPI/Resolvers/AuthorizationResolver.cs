@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using ApplicationAPI.Contracts;
-using ApplicationAPI.Data.Repository.Base;
+using ApplicationAPI.Data.Repository;
 
 
 namespace ApplicationAPI.Resolvers;
@@ -11,9 +11,9 @@ public interface IAuthorizationResolver
 
 public sealed class AuthorizationResolver : IAuthorizationResolver
 {
-	private readonly IRepository _repository;
+	private readonly IUserRepository _userRepository;
 
-	public AuthorizationResolver(IRepository repository) => _repository = repository;
+	public AuthorizationResolver(IUserRepository userRepository) => _userRepository = userRepository;
 
 	public async Task<LoginResponse> Login(LoginRequest request)
 	{
@@ -23,7 +23,7 @@ public sealed class AuthorizationResolver : IAuthorizationResolver
 				ErrorMessage = "Username cannot be null"
 			};
 
-		var user = await _repository.GetUser(request.Username);
+		var user = await _userRepository.GetUserBy(request.Username);
 		if(user is null)
 			return new () {
 				Success = false,

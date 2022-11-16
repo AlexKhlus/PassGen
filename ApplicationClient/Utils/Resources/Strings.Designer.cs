@@ -105,15 +105,6 @@ namespace ApplicationClient.Utils.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Username.
-        /// </summary>
-        public static string LoginPlaceholder {
-            get {
-                return ResourceManager.GetString("LoginPlaceholder", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string PasswordPlaceholder {
@@ -134,18 +125,18 @@ namespace ApplicationClient.Utils.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Auth troubles?.
         /// </summary>
-        public static string ResetAccountPseudolink {
+        public static string ResetPasswordPseudolink {
             get {
-                return ResourceManager.GetString("ResetAccountPseudolink", resourceCulture);
+                return ResourceManager.GetString("ResetPasswordPseudolink", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Restore.
+        ///   Looks up a localized string similar to Restore password.
         /// </summary>
-        public static string RestoreAccountButton {
+        public static string RestorePasswordButton {
             get {
-                return ResourceManager.GetString("RestoreAccountButton", resourceCulture);
+                return ResourceManager.GetString("RestorePasswordButton", resourceCulture);
             }
         }
         
@@ -155,6 +146,24 @@ namespace ApplicationClient.Utils.Resources {
         public static string ReturnToSignin {
             get {
                 return ResourceManager.GetString("ReturnToSignin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Secret answer.
+        /// </summary>
+        public static string SecretAnswerPlaceholder {
+            get {
+                return ResourceManager.GetString("SecretAnswerPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select secret question.
+        /// </summary>
+        public static string SecretQuestionDefault {
+            get {
+                return ResourceManager.GetString("SecretQuestionDefault", resourceCulture);
             }
         }
         
@@ -191,6 +200,15 @@ namespace ApplicationClient.Utils.Resources {
         public static string SignupButton {
             get {
                 return ResourceManager.GetString("SignupButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username.
+        /// </summary>
+        public static string UsernamePlaceholder {
+            get {
+                return ResourceManager.GetString("UsernamePlaceholder", resourceCulture);
             }
         }
     }

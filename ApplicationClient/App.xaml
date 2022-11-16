@@ -20,8 +20,8 @@
 		<DataTemplate DataType="{x:Type viewModels:NavigationSideBarViewModel}">
 			<views:NavigationSideBarView />
 		</DataTemplate>
-		<DataTemplate DataType="{x:Type viewModels:ResetAccountViewModel}">
-			<views:ResetAccountView />
+		<DataTemplate DataType="{x:Type viewModels:ResetPasswordViewModel}">
+			<views:ResetPasswordView />
 		</DataTemplate>
 	</Application.Resources>
 </Application>

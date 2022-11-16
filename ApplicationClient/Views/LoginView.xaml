@@ -36,10 +36,11 @@
 				Text="{Binding Username,
 			    	Mode=TwoWay,
 			    	UpdateSourceTrigger=PropertyChanged}"
-				Placeholder="{x:Static resx:Strings.LoginPlaceholder}"
+				Placeholder="{x:Static resx:Strings.UsernamePlaceholder}"
 				HasClearButton="True"
 				HasLeadingIcon="True"
 				LeadingIcon="{StaticResource UserIcon}" />
+
 			<xamlControls:BindablePasswordBox
 				Style="{StaticResource BindablePasswordStyle}"
 				Password="{Binding Password,
@@ -60,7 +61,7 @@
 					<Button.Content>
 						<TextBlock
 							x:Name="AuthTroublesText"
-							Text="{x:Static resx:Strings.ResetAccountPseudolink}"
+							Text="{x:Static resx:Strings.ResetPasswordPseudolink}"
 							Style="{StaticResource PseudoLinkTextBlockStyle}" />
 					</Button.Content>
 				</Button>

@@ -2,9 +2,9 @@
 
 
 namespace ApplicationClient.Views;
-public partial class ResetAccountView : UserControl
+public partial class ResetPasswordView : UserControl
 {
-	public ResetAccountView()
+	public ResetPasswordView()
 	{
 		InitializeComponent();
 	}

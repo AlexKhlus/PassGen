@@ -1,6 +1,5 @@
 ﻿using System.Globalization;
 using System.Windows;
-using ApplicationAPI.Data.Repository.Base;
 using ApplicationClient.Utils.Commands;
 using ApplicationClient.Utils.Extensions;
 using ApplicationClient.Views;
