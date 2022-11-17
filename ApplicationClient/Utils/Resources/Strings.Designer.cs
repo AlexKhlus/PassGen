@@ -60,6 +60,15 @@ namespace ApplicationClient.Utils.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Passwords do not match.
+        /// </summary>
+        public static string ApprovePasswordError {
+            get {
+                return ResourceManager.GetString("ApprovePasswordError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PassGen.
         /// </summary>
         public static string AppTitle {
@@ -200,6 +209,15 @@ namespace ApplicationClient.Utils.Resources {
         public static string SignupButton {
             get {
                 return ResourceManager.GetString("SignupButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User with same username already registered.
+        /// </summary>
+        public static string UserExistError {
+            get {
+                return ResourceManager.GetString("UserExistError", resourceCulture);
             }
         }
         

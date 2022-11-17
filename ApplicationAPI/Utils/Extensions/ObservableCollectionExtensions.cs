@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 
-namespace ApplicationClient.Utils.Extensions;
+namespace ApplicationAPI.Utils.Extensions;
 public static class ObservableCollectionExtensions 
 {
 	public static ObservableCollection<T> AddRange<T>(this ObservableCollection<T> collection, IEnumerable<T> enumerable) 

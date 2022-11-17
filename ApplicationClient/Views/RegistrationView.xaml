@@ -31,13 +31,22 @@
 			Margin="0 -120 0 0">
 			<xamlControls:CustomizableField
 				Style="{StaticResource CustomizeFieldStyle}"
-				Text="{Binding Username,
-			    	Mode=TwoWay,
-			    	UpdateSourceTrigger=PropertyChanged}"
 				Placeholder="{x:Static resx:Strings.UsernamePlaceholder}"
 				HasClearButton="True"
 				HasLeadingIcon="True"
-				LeadingIcon="{StaticResource UserIcon}" />
+				LeadingIcon="{StaticResource UserIcon}" 
+				Validation.ErrorTemplate="{StaticResource UserExistValidationFailed}">
+				<xamlControls:CustomizableField.Text>
+					<Binding 
+						Path="Username"
+						Mode="TwoWay"
+						UpdateSourceTrigger="PropertyChanged">
+						<Binding.ValidationRules>
+							<DataErrorValidationRule />
+						</Binding.ValidationRules>
+					</Binding>
+				</xamlControls:CustomizableField.Text>
+			</xamlControls:CustomizableField>
 
 			<xamlControls:CustomCombobox
 				Style="{StaticResource CustomComboboxStyle}"
@@ -67,12 +76,21 @@
 
 			<xamlControls:BindablePasswordBox
 				Style="{StaticResource BindablePasswordStyle}"
-				Password="{Binding RepeatPassword,
-			    	Mode=TwoWay,
-			    	UpdateSourceTrigger=PropertyChanged}"
 				Placeholder="{x:Static resx:Strings.RepeatPasswordPlaceholder}"
 				HasLeadingIcon="True"
-				LeadingIcon="{StaticResource PasswordIcon}" />
+				LeadingIcon="{StaticResource PasswordIcon}"
+				Validation.ErrorTemplate="{StaticResource ApprovePasswordValidationFailed}">
+				<xamlControls:BindablePasswordBox.Password>
+					<Binding
+						Path="RepeatPassword"
+						Mode="TwoWay"
+						UpdateSourceTrigger="PropertyChanged">
+						<Binding.ValidationRules>
+							<DataErrorValidationRule />
+						</Binding.ValidationRules>
+					</Binding>
+				</xamlControls:BindablePasswordBox.Password>
+			</xamlControls:BindablePasswordBox>
 			<StackPanel
 				Orientation="Vertical"
 				HorizontalAlignment="Center" VerticalAlignment="Center"

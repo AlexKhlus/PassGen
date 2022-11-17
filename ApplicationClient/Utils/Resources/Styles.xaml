@@ -236,4 +236,32 @@
 		<Setter Property="Margin" Value="8 0 8 4" />
 		<Setter Property="VerticalAlignment" Value="Bottom" />
 	</Style>
+
+	<ControlTemplate x:Key="ApprovePasswordValidationFailed">
+		<StackPanel Orientation="Vertical">
+			<Border 
+				BorderBrush="{StaticResource WrongInputColor}" 
+				BorderThickness="2"
+				CornerRadius="10">
+				<AdornedElementPlaceholder />
+			</Border>
+			<TextBlock 
+				Foreground="{StaticResource WrongInputColor}" 
+				Text="{x:Static resx:Strings.ApprovePasswordError}" />
+		</StackPanel>
+	</ControlTemplate>
+
+	<ControlTemplate x:Key="UserExistValidationFailed">
+		<StackPanel Orientation="Vertical">
+			<Border
+				BorderBrush="{StaticResource WrongInputColor}"
+				BorderThickness="2"
+				CornerRadius="10">
+				<AdornedElementPlaceholder />
+			</Border>
+			<TextBlock
+				Foreground="{StaticResource WrongInputColor}"
+				Text="{x:Static resx:Strings.UserExistError}" />
+		</StackPanel>
+	</ControlTemplate>
 </ResourceDictionary>

@@ -62,4 +62,10 @@
     <data name="SecretQuestionDefault" xml:space="preserve">
         <value>Select secret question</value>
     </data>
+    <data name="ApprovePasswordError" xml:space="preserve">
+        <value>Passwords do not match</value>
+    </data>
+    <data name="UserExistError" xml:space="preserve">
+        <value>User with same username already registered</value>
+    </data>
 </root>

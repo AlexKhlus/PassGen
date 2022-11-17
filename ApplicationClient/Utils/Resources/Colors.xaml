@@ -5,6 +5,7 @@
     <SolidColorBrush x:Key="ForegroundColor" Color="#C9D1D9"/>
     <SolidColorBrush x:Key="PlaceholderColor" Color="#B0B0B0" />
     <SolidColorBrush x:Key="InputBackgroundColor" Color="#161B22"/>
+    <SolidColorBrush x:Key="WrongInputColor" Color="#803030"/>
     <Color x:Key="OnMouseOverFieldElement" R="192" G="192" B="192" A="50" />
     <SolidColorBrush x:Key="IconsColor" Color="#A0A0A0" />
     <SolidColorBrush x:Key="OnIconMouseOveredStateColor" Color="#b9B9B9" />

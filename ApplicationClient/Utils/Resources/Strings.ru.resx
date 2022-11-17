@@ -62,4 +62,10 @@
     <data name="SecretQuestionDefault" xml:space="preserve">
         <value>Выберете секретный вопрос</value>
     </data>
+    <data name="ApprovePasswordError" xml:space="preserve">
+        <value>Пароли не совпадают</value>
+    </data>
+    <data name="UserExistError" xml:space="preserve">
+        <value>Пользователь c таким именем уже зарегистрирован</value>
+    </data>
 </root>

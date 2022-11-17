@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 
 
-namespace ApplicationClient.Utils.Extensions;
+namespace ApplicationAPI.Utils.Extensions;
 public static class StringExtensions 
 {
 	public static bool IsEmptyOrWhitespace(this string value) 

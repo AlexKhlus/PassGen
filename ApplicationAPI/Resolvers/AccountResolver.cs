@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using ApplicationAPI.Contracts;
 using ApplicationAPI.Data.Repository;
+using ApplicationAPI.Utils.Extensions;
 
 
 namespace ApplicationAPI.Resolvers;
@@ -9,6 +10,7 @@ public interface IAccountResolver
 	Task<RegistrationResponse> RegisterAccount(RegistrationRequest request);
 	Task<ResetPasswordResponse> ResetPassword(ResetPasswordRequest request);
 	Task<bool> ValidateSecretAnswer(string? username, string? secretAnswer);
+	Task<bool> IsUserExist(string? username);
 }
 
 public sealed class AccountResolver : IAccountResolver
@@ -19,22 +21,27 @@ public sealed class AccountResolver : IAccountResolver
 
 	public async Task<RegistrationResponse> RegisterAccount(RegistrationRequest request) 
 	{
-		if(request.Username is null)
+		if(request.Username?.IsEmptyOrWhitespace() is true)
 			return new () {
 				Success = false,
-				ErrorMessage = "Username cannot be null"
+				ErrorMessage = "Username cannot be empty"
 			};
-		else if(request.SecretQuestion is null)
+		if(await _userRepository.GetUserBy(request.Username!) is not null)
 			return new () {
 				Success = false,
-				ErrorMessage = "Secret question cannot be null"
+				ErrorMessage = "User already register"
 			};
-		else if(request.SecretAnswer is null)
+		if(request.SecretQuestion?.IsEmptyOrWhitespace() is true)
 			return new () {
 				Success = false,
-				ErrorMessage = "Secret answer cannot be null"
+				ErrorMessage = "Secret question cannot be empty"
 			};
-		else if(string.Equals(request.Password, request.RepeatPassword) is false)
+		if(request.SecretAnswer?.IsEmptyOrWhitespace() is true)
+			return new () {
+				Success = false,
+				ErrorMessage = "Secret answer cannot be empty"
+			};
+		if(string.Equals(request.Password, request.RepeatPassword) is false)
 			return new () {
 				Success = false,
 				ErrorMessage = "Passwords must be same"
@@ -87,12 +94,17 @@ public sealed class AccountResolver : IAccountResolver
 			};
 	}
 
-	public async Task<bool> ValidateSecretAnswer(string? username, string? secretAnswer)
+	public async Task<bool> ValidateSecretAnswer(string? username, string? secretAnswer) 
 	{
 		if(username is null || secretAnswer is null)
 			return false;
 
 		var user = await _userRepository.GetUserBy(username);
 		return user is not null && string.Equals(secretAnswer, user.SecretAnswer);
+	}
+
+	public async Task<bool> IsUserExist(string? username) 
+	{
+		return username?.IsEmptyOrWhitespace() is false && await _userRepository.GetUserBy(username) is not null;
 	}
 }

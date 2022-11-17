@@ -1,6 +1,6 @@
-﻿using ApplicationClient.Utils.Commands;
+﻿using ApplicationAPI.Utils.Extensions;
+using ApplicationClient.Utils.Commands;
 using ApplicationClient.Utils.Commands.Base;
-using ApplicationClient.Utils.Extensions;
 using ApplicationClient.ViewModels.Base;
 
 

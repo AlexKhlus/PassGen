@@ -1,27 +1,31 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using ApplicationAPI.Data.Repository;
+using ApplicationAPI.Resolvers;
+using ApplicationAPI.Utils.Extensions;
 using ApplicationClient.Utils.Commands;
 using ApplicationClient.Utils.Commands.Base;
-using ApplicationClient.Utils.Extensions;
 using ApplicationClient.Utils.Resources;
 using ApplicationClient.ViewModels.Base;
 
 
 namespace ApplicationClient.ViewModels;
-public sealed class RegistrationViewModel : ViewModel
+public sealed class RegistrationViewModel : ViewModel, IDataErrorInfo
 {
+	private readonly IAccountResolver _accountResolver;
+
 	private string? _username;
 	private string? _password;
 	private string? _repeatPassword;
-
 	private string? _selectedSecretQuestion;
 	private string? _secretAnswer;
 
 	public RegistrationViewModel(
 		NavigateToLoginViewCommand navigateToLoginViewCommand,
 		RegisterAccountCommand registerAccountCommand,
-		ISecretQuestionRepository secretQuestionRepository
+		ISecretQuestionRepository secretQuestionRepository,
+		IAccountResolver accountResolver
 	) 
 	{
 		(NavigateLoginCommand = navigateToLoginViewCommand).CanExecuteCondition = () => true;
@@ -29,6 +33,8 @@ public sealed class RegistrationViewModel : ViewModel
 
 		(SecretQuestions = new () { Strings.SecretQuestionDefault }).AddRange(secretQuestionRepository.GetQuestions().Result);
 		SelectedSecretQuestion = SecretQuestions.First();
+
+		_accountResolver = accountResolver;
 	}
 
 	public string? Username 
@@ -95,6 +101,29 @@ public sealed class RegistrationViewModel : ViewModel
 			_secretAnswer = value;
 			InvokePropertyChanged();
 			RegisterAccountCommand.InvokeCanExecuteChanged();
+		}
+	}
+
+	public string Error { get; }
+
+	public string this[string columnName]
+	{
+		get
+		{
+			var error = string.Empty;
+			switch(columnName)
+			{
+				case nameof(RepeatPassword):
+					if(string.Equals(RepeatPassword, Password) is false)
+						error = Strings.ApprovePasswordError;
+					break;
+				case nameof(Username):
+					if(_accountResolver.IsUserExist(Username).Result)
+						error = Strings.UserExistError;
+					break;
+			}
+
+			return error;
 		}
 	}
 
