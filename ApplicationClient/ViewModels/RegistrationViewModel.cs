@@ -3,17 +3,18 @@ using System.ComponentModel;
 using System.Linq;
 using ApplicationAPI.Data.Repository;
 using ApplicationAPI.Resolvers;
-using ApplicationAPI.Utils.Extensions;
 using ApplicationClient.Utils.Commands;
 using ApplicationClient.Utils.Commands.Base;
 using ApplicationClient.Utils.Resources;
 using ApplicationClient.ViewModels.Base;
-
+using FluentValidation;
+using ApplicationAPI.Utils.Extensions;
 
 namespace ApplicationClient.ViewModels;
 public sealed class RegistrationViewModel : ViewModel, IDataErrorInfo
 {
 	private readonly IAccountResolver _accountResolver;
+	private readonly IValidator<RegistrationViewModel> _validator;
 
 	private string? _username;
 	private string? _password;
@@ -22,25 +23,28 @@ public sealed class RegistrationViewModel : ViewModel, IDataErrorInfo
 	private string? _secretAnswer;
 
 	public RegistrationViewModel(
-		NavigateToLoginViewCommand navigateToLoginViewCommand,
-		RegisterAccountCommand registerAccountCommand,
 		ISecretQuestionRepository secretQuestionRepository,
-		IAccountResolver accountResolver
-	) 
+		IAccountResolver accountResolver,
+		IValidator<RegistrationViewModel> validator,
+		NavigateToLoginViewCommand navigateToLoginViewCommand,
+		RegisterAccountCommand registerAccountCommand
+	)
 	{
+		_accountResolver = accountResolver;
+		_validator = validator;
+
 		(NavigateLoginCommand = navigateToLoginViewCommand).CanExecuteCondition = () => true;
 		(RegisterAccountCommand = registerAccountCommand).CanExecuteCondition = CredentialsProvided;
 
 		(SecretQuestions = new () { Strings.SecretQuestionDefault }).AddRange(secretQuestionRepository.GetQuestions().Result);
 		SelectedSecretQuestion = SecretQuestions.First();
 
-		_accountResolver = accountResolver;
 	}
 
-	public string? Username 
+	public string? Username
 	{
 		get => _username;
-		set 
+		set
 		{
 			if(string.Equals(value, _username)) return;
 
@@ -50,7 +54,7 @@ public sealed class RegistrationViewModel : ViewModel, IDataErrorInfo
 		}
 	}
 
-	public string? Password 
+	public string? Password
 	{
 		get => _password;
 		set
@@ -63,7 +67,7 @@ public sealed class RegistrationViewModel : ViewModel, IDataErrorInfo
 		}
 	}
 
-	public string? RepeatPassword 
+	public string? RepeatPassword
 	{
 		get => _repeatPassword;
 		set
@@ -78,10 +82,10 @@ public sealed class RegistrationViewModel : ViewModel, IDataErrorInfo
 
 	public List<string?> SecretQuestions { get; }
 
-	public string? SelectedSecretQuestion 
+	public string? SelectedSecretQuestion
 	{
 		get => _selectedSecretQuestion;
-		set 
+		set
 		{
 			if(string.Equals(value, _selectedSecretQuestion)) return;
 
@@ -91,10 +95,10 @@ public sealed class RegistrationViewModel : ViewModel, IDataErrorInfo
 		}
 	}
 
-	public string? SecretAnswer 
+	public string? SecretAnswer
 	{
 		get => _secretAnswer;
-		set 
+		set
 		{
 			if(string.Equals(value, _secretAnswer)) return;
 
@@ -130,11 +134,39 @@ public sealed class RegistrationViewModel : ViewModel, IDataErrorInfo
 	public AsyncCommand NavigateLoginCommand { get; }
 	public AsyncCommand RegisterAccountCommand { get; }
 
-	private bool CredentialsProvided()
-		=>  Username?.IsEmptyOrWhitespace() is false &&
-			Password?.IsEmptyOrWhitespace() is false &&
-			RepeatPassword?.IsEmptyOrWhitespace() is false &&
-			string.Equals(Password, RepeatPassword) &&
-			string.Equals(SelectedSecretQuestion, SecretQuestions.First()) is false &&
-			SecretAnswer?.IsEmptyOrWhitespace() is false;
+	private bool CredentialsProvided() => _validator.Validate(this).IsValid;
+}
+
+public sealed class RegistrationViewModelValidate : AbstractValidator<RegistrationViewModel>
+{
+	public RegistrationViewModelValidate()
+	{
+		RuleFor(viewModel => viewModel.Username)
+			.NotNull()
+			.NotEmpty().WithMessage($"Username cannot be empty or whitespace!")
+			.Must(username => username?.IsWhiteSpace() is false).WithMessage($"Username cannot be empty or whitespace!");
+
+		RuleFor(viewModel => viewModel.Password)
+			.NotNull()
+			.NotEmpty().WithMessage($"Password cannot be empty or whitespace!")
+			.Must(password => password?.IsWhiteSpace() is false).WithMessage($"Password cannot be empty or whitespace!");
+
+		RuleFor(viewModel => viewModel.RepeatPassword)
+			.NotNull()
+			.NotEmpty().WithMessage($"Repeat password cannot be empty or whitespace!")
+			.Must(repeatPassword => repeatPassword?.IsWhiteSpace() is false).WithMessage($"Repeat password cannot be empty or whitespace!");
+
+		RuleFor(viewModel => viewModel.SelectedSecretQuestion)
+			.NotNull()
+			.NotEmpty().WithMessage($"Secret question cannot be empty or default!")
+			.Must(secretQuestion => string.Equals(secretQuestion, Strings.SecretQuestionDefault) is false).WithMessage($"Secret question cannot be empty or default!");
+
+		RuleFor(viewModel => viewModel.SecretAnswer)
+			.NotNull()
+			.NotEmpty().WithMessage($"Secret answer cannot be empty or whitespace!")
+			.Must(secretAnswer => secretAnswer?.IsWhiteSpace() is false).WithMessage($"Secret answer cannot be empty or whitespace!");
+
+		RuleFor(viewModel => viewModel)
+			.Must(viewModel => string.Equals(viewModel.Password, viewModel.RepeatPassword)).WithMessage($"Passwords must be same!");
+	}
 }
