@@ -1,15 +1,33 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ApplicationAPI.Data.Repository;
+using ApplicationAPI.Utils.Extensions;
+using FluentValidation;
 
+// ReSharper disable ArrangeModifiersOrder
+// ReSharper disable ClassNeverInstantiated.Global
 
 namespace ApplicationAPI.Contracts;
-public sealed class LoginRequest
+public record LoginRequest
 {
-	[Required] public string? Username { get; init; }
-	[Required] public string? Password { get; init; }
+	public required string Username { get; init; }
+	public required string Password { get; init; }
 }
-
-public sealed class LoginResponse 
+public record LoginResponse
 {
-	public bool Success { get; init; }
-	public string? ErrorMessage { get; init; }
+	public required bool Success { get; init; }
+	public required string? ErrorMessage { get; init; }
+}
+public sealed class LoginRequestValidator : AbstractValidator<LoginRequest>
+{
+	public LoginRequestValidator(IUserRepository userRepository)
+	{
+		RuleFor(request => request.Username)
+			.NotNull()
+			.NotEmpty().WithMessage($"Username cannot be empty!")
+			.Must(username => username?.IsWhiteSpace() is false)
+			.Must(username => userRepository.GetUserBy(username!).Result is not null).WithMessage($"Cannot found existing user!");
+
+		RuleFor(request => request.Password)
+			.NotNull()
+			.NotEmpty().WithMessage($"Password cannot be empty!");
+	}
 }
